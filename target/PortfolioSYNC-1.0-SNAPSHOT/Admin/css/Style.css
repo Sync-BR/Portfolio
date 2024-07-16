@@ -1,0 +1,46 @@
+body{
+    background-color: #150140;
+    overflow: hidden;
+
+}
+header{
+    background-color: whitesmoke;
+    align-items: center;
+    display: flex;
+    width: 100vw;
+}
+header h1{
+    text-align: center;
+    width: 100%;
+}
+
+
+header img{
+    width: 140px;
+}
+main{
+    margin: 1vh 0 0 0;
+    background-color: white;
+    height: 90vh;
+
+}
+.apresentacao{
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    border: 1px solid black;
+    
+}
+.formApresetacao{
+    width: 40%;
+}
+.inpultTXT{
+    width: 100%;
+    
+}
+.inpultArea{
+    height: 80px;
+}
+
