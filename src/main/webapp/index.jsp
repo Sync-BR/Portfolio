@@ -97,7 +97,7 @@
                                     if (usuarioBeans.getToken() == null) {
                                         out.print("<a class=\"nav-link disabled\" href=\"#\" tabindex=\"-1\" aria-disabled=\"true\">Painel</a>");
                                     } else {
-                                        out.print("<a class=\"nav-link \" href=\"#\" tabindex=\"-1\" aria-disabled=\"true\">Painel</a>");
+                                        out.print("<a class=\"nav-link \" href=\"./Admin/home.jsp\" tabindex=\"-1\" aria-disabled=\"true\">Painel</a>");
                                     }
                                 %>
                             </li>

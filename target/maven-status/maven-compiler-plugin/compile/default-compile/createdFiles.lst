@@ -1,6 +1,9 @@
+Dao\postDao.class
+Beans\postBean.class
 Util\Conexao.class
 Beans\usuarioBeans.class
+Dao\usuarioDao.class
+Servlets\servletPost.class
 Token\jwtToken.class
 Filter\JwtFilter.class
 Servlets\userServlets.class
-Dao\usuarioDao.class

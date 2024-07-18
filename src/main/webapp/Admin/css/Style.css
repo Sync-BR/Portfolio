@@ -1,46 +1,72 @@
-body{
+body {
     background-color: #150140;
     overflow: hidden;
 
 }
-header{
-    background-color: whitesmoke;
+
+header {
+    background-color: white;
     align-items: center;
     display: flex;
     width: 100vw;
+    border: 1px solid black;
 }
-header h1{
+
+header h1 {
     text-align: center;
     width: 100%;
 }
 
 
-header img{
+header img {
     width: 140px;
 }
-main{
-    margin: 1vh 0 0 0;
+
+main {
+    margin: 2px 0 0 0;
     background-color: white;
     height: 90vh;
 
+
 }
-.apresentacao{
-    width: 90vw;
+
+.apresentacao {
+    width: 78vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40vh;
+    height: auto;
+    padding: 10px 0 10px 0;
     border: 1px solid black;
-    
+
 }
-.formApresetacao{
-    width: 40%;
-}
-.inpultTXT{
+
+form {
+    padding: 0 25px 0 25px;
+  
+    label{
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+.inpultTXT {
     width: 100%;
-    
+
 }
-.inpultArea{
+
+.inpultArea {
     height: 80px;
 }
 
+.btn-lg {
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+.txtTitulo{
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+}

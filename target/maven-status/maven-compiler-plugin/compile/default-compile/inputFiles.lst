@@ -1,6 +1,10 @@
+E:\Projetos\PortfolioSYNC\src\main\java\Dao\postDao.java
 E:\Projetos\PortfolioSYNC\src\main\java\Util\Conexao.java
+E:\Projetos\PortfolioSYNC\src\main\java\config\production.java
 E:\Projetos\PortfolioSYNC\src\main\java\Servlets\userServlets.java
+E:\Projetos\PortfolioSYNC\src\main\java\Servlets\servletPost.java
 E:\Projetos\PortfolioSYNC\src\main\java\Token\jwtToken.java
 E:\Projetos\PortfolioSYNC\src\main\java\Beans\usuarioBeans.java
 E:\Projetos\PortfolioSYNC\src\main\java\Dao\usuarioDao.java
+E:\Projetos\PortfolioSYNC\src\main\java\Beans\postBean.java
 E:\Projetos\PortfolioSYNC\src\main\java\Filter\JwtFilter.java
