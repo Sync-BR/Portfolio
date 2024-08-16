@@ -20,31 +20,9 @@ public class servletPost extends HttpServlet {
 
     production config = new production();
 
-    protected void addPost() {
-    }
-
-    ;
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-
-        String action = request.getParameter("action");
-        switch (action) {
-            case "addPost":
-                try {
+    protected void addPost(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("Passei aqui");
+    try {
                     postBean addpost = new postBean();
                     postDao cadpost = new postDao();
                     addpost.setRepository(config.urlRepository + "txtRepository");
@@ -74,12 +52,35 @@ public class servletPost extends HttpServlet {
                             System.out.println("Chave duplicada");
                             break;
                         default:
-                            throw new AssertionError();
+                          //  throw new AssertionError();
                     }
                 } catch (Exception e) {
                     e.getMessage();
                 }
+    
+    };
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+
+        String action = request.getParameter("action");
+        System.out.println("Valor do action: " +action);
+        switch (action) {
+            case "addPost":
+                addPost(request, response);
                 break;
             case "teste":
 

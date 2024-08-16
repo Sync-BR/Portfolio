@@ -12,7 +12,7 @@ CREATE TABLE `portfolio`.`posts` (
   `title` VARCHAR(30) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
   `archiveName` VARCHAR(45) NOT NULL,
-  `repository` VARCHAR(20) NOT NULL,
+  `repository` VARCHAR(40) NOT NULL,
   `frontendProject` TINYINT NOT NULL,
   `backendProject` TINYINT NOT NULL,
   `author` VARCHAR(45) NOT NULL,

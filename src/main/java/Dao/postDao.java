@@ -39,6 +39,8 @@ public class postDao {
             }
 
         } catch (SQLException e) {
+            e.printStackTrace();
+            e.getMessage();
             codeState = e.getErrorCode();
             System.out.println(codeState);
         }
@@ -47,26 +49,5 @@ public class postDao {
 
     }
 
-    public static void main(String[] args) throws Exception {
-        postBean addpost = new postBean();
-        addpost.setTitle("Ola");
-        addpost.setDescription("bem vindos");
-        addpost.setArchiveName("Foto.png");
-        addpost.setRepository("6");
-        addpost.setFrontendProject(true);
-        addpost.setBackendProject(false);
-        addpost.author.setUser("Admin");
-        postDao operation = new postDao();
-        int codeState = operation.addPost(addpost);
-        switch (codeState) {
-            case 200:
-                    System.out.println("Sucesso!");
-                break;
-            case 1062:
-                System.out.println("Chave duplicada!");
-                break;
-            default:
-                throw new AssertionError();
-        }
-    }
+    
 }

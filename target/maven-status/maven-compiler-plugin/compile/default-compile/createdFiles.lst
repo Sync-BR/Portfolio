@@ -1,4 +1,6 @@
+config\production.class
 Dao\postDao.class
+Util\ftpUpload.class
 Beans\postBean.class
 Util\Conexao.class
 Beans\usuarioBeans.class

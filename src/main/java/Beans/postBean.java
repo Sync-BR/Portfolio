@@ -14,18 +14,13 @@ public class postBean {
     private String repository;
     private boolean frontendProject;
     private boolean backendProject;
-    public final usuarioBeans author;
+    public final String author;
 
     public postBean() {
-        this.author = new usuarioBeans();
+        this.author = "SYNC";
     }
 
-    public static void main(String[] args) {
-        postBean addpost = new postBean();
-        addpost.author.setUser("Admin");        
-        System.out.println("Usuario: " + addpost.getAuthor());
 
-    }
 
     public int getId() {
         return id;
@@ -84,7 +79,7 @@ public class postBean {
     }
 
     public String getAuthor() {
-        return author.getUser();
+        return author;
     }
 
  

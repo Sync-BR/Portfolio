@@ -17,12 +17,12 @@ public class production {
         this.remoteFilePath = "/Pasta/";
     }
     
-    public String urlRepository;
+    public final String urlRepository;
     
     //Configuração do ftp
-    public String host;
-    public int port;
-    public String user;
-    public String pass;
-    public String remoteFilePath;
+    public final String host;
+    public final int port;
+    public final String user;
+    public final String pass;
+    public final String remoteFilePath;
 }
