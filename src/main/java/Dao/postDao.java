@@ -4,13 +4,49 @@ import Beans.postBean;
 import Util.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author SYNC
  */
 public class postDao {
+
+    public List<postBean> returnPost() throws Exception, SQLException  {
+        List<postBean> listPostagem = new ArrayList<>();
+        String sql = "SELECT * FROM portfolio.posts";
+        try (Connection connection = Conexao.getconnection(); PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            postBean addPost = new postBean();
+            while (rs.next()) {
+                addPost.setId(rs.getInt("id"));
+                addPost.setTitle(rs.getString("title"));
+                addPost.setDescription(rs.getString("description"));
+                addPost.setRepository(rs.getString("repository"));
+                addPost.setArchiveName(rs.getString("archiveName"));
+                addPost.setBackendProject(rs.getBoolean("backendProject"));
+                addPost.setFrontendProject(rs.getBoolean("frontendProject"));
+                listPostagem.add(addPost);
+      
+            }
+        } 
+        return listPostagem;
+    }
+ 
+    public static void main(String[] args) throws Exception {
+        postDao returnPost = new postDao();
+        List<postBean> list = returnPost.returnPost();
+        for (postBean postagem : list) {
+            System.out.println("Nome: " + postagem.getTitle());
+            System.out.println("descrição: " + postagem.getDescription());
+            System.out.println("repositorio: " + postagem.getRepository());
+            System.out.println("Arquivo de imagem: " + postagem.getArchiveName());
+            System.out.println("BackEnd" + postagem.isBackendProject());
+            System.out.println("FrontEnd" + postagem.isFrontendProject());
+        }
+    }
 
     /**
      *
@@ -20,9 +56,7 @@ public class postDao {
      *
      */
     public int addPost(postBean addpost) throws Exception {
- 
         int codeState = 0;
-
         String sql = "insert into portfolio.posts  (title ,description, archiveName, repository, frontendProject"
                 + ",backendProject,author) value (?, ?, ?, ?, ?, ?, ? ) ";
         try (Connection connection = Conexao.getconnection(); PreparedStatement ps = connection.prepareCall(sql);) {
@@ -44,10 +78,9 @@ public class postDao {
             codeState = e.getErrorCode();
             System.out.println(codeState);
         }
-        
+
         return codeState;
 
     }
 
-    
 }

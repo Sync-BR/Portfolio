@@ -14,10 +14,9 @@ public class postBean {
     private String repository;
     private boolean frontendProject;
     private boolean backendProject;
-    public final String author;
+    public final String author = "SYNC";
 
     public postBean() {
-        this.author = "SYNC";
     }
 
 

@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="Dao.postDao"%>
+<%@page import="Beans.postBean"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="Util.Conexao"%>
 <%@page import="java.sql.Connection"%>
@@ -21,8 +24,7 @@
     }
 
 %>
-<%    
-    System.out.println("Token autenticado: " + usuarioBeans.getToken());
+<%    System.out.println("Token autenticado: " + usuarioBeans.getToken());
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -137,19 +139,40 @@
                     </li>
 
                 </ul>
+                <style>
+                    .conteudo{
+                        display: flex;
+                        flex-direction: row;
+                    }
+
+                </style>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <!-- FrontEnd -->
-                        <div class="card">
-                            <img src="./src/img/site1.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">FrontEnd Mentor</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="conteudo">
+                            <!-- FrontEnd -->
+                            <div class="card">
+                                <img src="./src/img/site1.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">FrontEnd Mentor</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
                             </div>
-                        </div>
+                            <%
+                                postDao returnPost = new postDao();
+                                List<postBean> listPost = returnPost.returnPost();
+                                for (postBean lista : listPost) {
+                                    out.print("<div class=\"card\">");
+                                    out.print(" <img src=\"./src/img/" + lista.getArchiveName() + "\" class=\"card-img-top\" alt=\"" + lista.getTitle() + "\">");
+                                    out.print("<div class=\"card-body\">");
+                                    out.print(" <h5 class=\"card-title\">" + lista.getTitle() + "</h5>");
+                                    out.print("<p class=\"card-text\">" + lista.getDescription() + "</p>");
+                                    out.print("</div></div>");
 
+                                }
+                            %>
+                        </div>
                     </div>
                     <!-- Backend -->
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">

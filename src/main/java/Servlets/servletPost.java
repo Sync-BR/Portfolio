@@ -25,7 +25,7 @@ public class servletPost extends HttpServlet {
     try {
                     postBean addpost = new postBean();
                     postDao cadpost = new postDao();
-                    addpost.setRepository(config.urlRepository + "txtRepository");
+                    addpost.setRepository(config.urlRepository + request.getParameter("txtRepository"));
                     addpost.setTitle(request.getParameter("txtTitulo"));
                     addpost.setDescription(request.getParameter("txtDescription"));
                     addpost.setArchiveName(request.getPart("fileIMG").getSubmittedFileName());

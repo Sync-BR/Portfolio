@@ -98,11 +98,11 @@
                             <br>
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="frontEnd" value="true">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">BackEnd</label>
+                                <label class="form-check-label" for="flexSwitchCheckDefault">FrontEnd</label>
                             </div>
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="backEnd" value="true">
-                                <label class="form-check-label" for="flexSwitchCheckChecked">FrontEnd</label>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">BackEnd</label>
                             </div>
                             <input type="hidden" name="action" value="addPost">
                             <button type="submit" name="" class="btn-secondary btn-lg">Enviar</button>
