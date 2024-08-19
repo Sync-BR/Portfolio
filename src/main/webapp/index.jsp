@@ -160,14 +160,15 @@
                                 </div>
                             </div>
                             <%
-                                postDao returnPost = new postDao();
-                                List<postBean> listPost = returnPost.returnPost();
-                                for (postBean lista : listPost) {
+                                postDao returnPostFront = new postDao();
+                                List<postBean> listFront = returnPostFront.returnPostFrontEnd();
+                                for (postBean lista : listFront) {
                                     out.print("<div class=\"card\">");
                                     out.print(" <img src=\"./src/img/" + lista.getArchiveName() + "\" class=\"card-img-top\" alt=\"" + lista.getTitle() + "\">");
                                     out.print("<div class=\"card-body\">");
                                     out.print(" <h5 class=\"card-title\">" + lista.getTitle() + "</h5>");
                                     out.print("<p class=\"card-text\">" + lista.getDescription() + "</p>");
+                                    out.print("<a href=\"" + lista.getRepository() + "\" class=\"btn btn-primary\">Acessar repositorio</a>");
                                     out.print("</div></div>");
 
                                 }
@@ -176,14 +177,33 @@
                     </div>
                     <!-- Backend -->
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="card">
-                            <img src="./src/img/site1.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">FrontEnd Mentor</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="conteudo">
+                            <!-- FrontEnd -->
+                            <div class="card">
+                                <img src="./src/img/site1.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">FrontEnd Mentor</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                        of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
                             </div>
+                            <%
+                                
+                                postDao returnPostBackEnd = new postDao();
+                                List<postBean> listBack = returnPostBackEnd.returnPostBackEnd();
+                                for (postBean listas : listBack) {
+                                    out.print("<div class=\"card\">");
+                                    out.print(" <img src=\"./src/img/" + listas.getArchiveName() + "\" class=\"card-img-top\" alt=\"" + listas.getTitle() + "\">");
+                                    out.print("<div class=\"card-body\">");
+                                    out.print(" <h5 class=\"card-title\">" + listas.getTitle() + "</h5>");
+                                    out.print("<p class=\"card-text\">" + listas.getDescription() + "</p>");
+                                     out.print("<a href=\""+listas.getRepository()+"\" class=\"btn btn-primary\">Acessar repositorio</a>");
+                                    out.print("</div></div>");
+
+                                }
+                                 
+                            %>
                         </div>
 
                     </div>

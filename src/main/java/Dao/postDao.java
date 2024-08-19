@@ -15,9 +15,10 @@ import java.util.List;
  */
 public class postDao {
 
-    public List<postBean> returnPost() throws Exception, SQLException  {
+    public List<postBean> returnPostFrontEnd() throws Exception, SQLException {
         List<postBean> listPostagem = new ArrayList<>();
-        String sql = "SELECT * FROM portfolio.posts";
+        listPostagem.clear();
+        String sql = "SELECT * FROM portfolio.posts where frontendProject = 1";
         try (Connection connection = Conexao.getconnection(); PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             postBean addPost = new postBean();
             while (rs.next()) {
@@ -28,16 +29,39 @@ public class postDao {
                 addPost.setArchiveName(rs.getString("archiveName"));
                 addPost.setBackendProject(rs.getBoolean("backendProject"));
                 addPost.setFrontendProject(rs.getBoolean("frontendProject"));
-                listPostagem.add(addPost);
-      
+                listPostagem.add(new postBean(addPost.getId(), addPost.getTitle(), addPost.getDescription(), addPost.getRepository(), addPost.getArchiveName(), addPost.isBackendProject(),addPost.isFrontendProject()));
+
             }
-        } 
+        } catch (SQLException e) {
+            e.getMessage();
+        }
         return listPostagem;
     }
- 
+
+    public List<postBean> returnPostBackEnd() throws Exception, SQLException {
+        List<postBean> listPostagem = new ArrayList<>();
+        listPostagem.clear();
+        String sql = "SELECT * FROM portfolio.posts where backendProject = 1";
+        try (Connection connection = Conexao.getconnection(); PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            postBean addPost = new postBean();
+            while (rs.next()) {
+                addPost.setId(rs.getInt("id"));
+                addPost.setTitle(rs.getString("title"));
+                addPost.setDescription(rs.getString("description"));
+                addPost.setRepository(rs.getString("repository"));
+                addPost.setArchiveName(rs.getString("archiveName"));
+                addPost.setBackendProject(rs.getBoolean("backendProject"));
+                addPost.setFrontendProject(rs.getBoolean("frontendProject"));
+                listPostagem.add(new postBean(addPost.getId(), addPost.getTitle(), addPost.getDescription(), addPost.getRepository(), addPost.getArchiveName(), addPost.isBackendProject(),addPost.isFrontendProject()));
+
+            }
+        }
+        return listPostagem;
+    }
+
     public static void main(String[] args) throws Exception {
         postDao returnPost = new postDao();
-        List<postBean> list = returnPost.returnPost();
+        List<postBean> list = returnPost.returnPostFrontEnd();
         for (postBean postagem : list) {
             System.out.println("Nome: " + postagem.getTitle());
             System.out.println("descrição: " + postagem.getDescription());

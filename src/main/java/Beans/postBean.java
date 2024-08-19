@@ -19,6 +19,16 @@ public class postBean {
     public postBean() {
     }
 
+    public postBean(int id, String title, String description, String repository, String archiveName, boolean backendProject, boolean frontendProject) {
+      this.id = id;
+      this.title = title;
+      this.Description = description;
+      this.repository = repository;
+      this.archiveName = archiveName;
+      this.backendProject = backendProject;
+      this.frontendProject = frontendProject;
+    }
+
 
 
     public int getId() {
